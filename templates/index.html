@@ -9,11 +9,50 @@
         <header>
         <div>
             <h1 class="logo">CMPE 285 Project</h1>
+            <h2 class="body" name="portfolio">Your Portfolio: ${{ portfolio }}</h2>
         </div>
         </header>
         <div>
+            <br>
             <canvas id="myChart" width="400" height="100"></canvas>
+            <script type="text/javascript">let history = {{ data|tojson }}</script>
             <script src="{{ url_for('static', filename='js/chart.js') }}"></script>
+        </div>
+        <div>
+            <form action="{{ url_for('add') }}" method="post" >
+                <label for="amount">Add investment:</label>
+                <input type="text" id="amount" name="amount">
+                <br>
+                <label for="Ethical">Ethical Investing</label>
+                <input type="checkbox" id="Ethical" name="Ethical">
+                <br>
+                <label for="Growth">Growth Investing</label>
+                <input type="checkbox" id="Growth" name="Growth">
+                <br>
+                <label for="Index">Index Investing</label>
+                <input type="checkbox" id="Index" name="Index">
+                <br>
+                <label for="Quality">Quality Investing</label>
+                <input type="checkbox" id="Quality" name="Quality">
+                <br>
+                <label for="Value">Value Investing</label>
+                <input type="checkbox" id="Value" name="Value">
+                <br>
+                <button type="submit" name="submit">Submit</button>
+            </form>
+            <form action="{{ url_for('reset') }}" method="post">
+                <button type="submit">Reset</button>
+                <br>
+                {% with messages = get_flashed_messages() %}
+                    {% if messages %}
+                        {% for message in messages %}
+                            <p>
+                            {{ message }}
+                            </p>
+                        {% endfor %}
+                    {% endif %}
+                {% endwith %}
+            </form>
         </div>
     </body>
 </html>

@@ -21,3 +21,14 @@ header h1.logo {
   text-align-all: center;
   text-transform: uppercase;
 }
+header h2.body {
+  background-color: #ffffff;
+  margin: 0;
+  color: #000;
+  text-align-all: center;
+  text-transform: uppercase;
+}
+
+button {
+  margin: 5px;
+}
