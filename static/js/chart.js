@@ -2,10 +2,10 @@ const ctx = document.getElementById('myChart');
 const myChart = new Chart(ctx, {
     type: 'bar',
     data: {
-        labels: ['Red', 'Blue', 'Yellow', 'Green', 'Purple', 'Orange'],
+        labels: ['Four days ago', 'Three days ago', 'Two days ago', 'Yesterday', 'Today'],
         datasets: [{
-            label: 'test1',
-            data: [15, 19, 3, 5, 2, 3],
+            label: 'Net Value Bar',
+            data: historyData,
             backgroundColor: [
                 'rgba(255, 99, 132, 0.2)',
                 'rgba(54, 162, 235, 0.2)',
@@ -25,8 +25,7 @@ const myChart = new Chart(ctx, {
             borderWidth: 1,
             order: 0
         }, {
-            label: 'test2',
-            data: [12, 19, 3, 5, 2, 3],
+            data: historyData,
             tension: 0,
             backgroundColor:'rgba(200, 14, 133, 0)',
             borderColor: 'rgba(255, 99, 132, 1)',

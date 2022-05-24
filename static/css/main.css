@@ -28,6 +28,13 @@ header h2.body {
   text-align-all: center;
   text-transform: uppercase;
 }
+div h3.stock {
+  background-color: #ffffff;
+  margin: 0;
+  color: #000;
+  text-align-all: center;
+  text-transform: uppercase;
+}
 
 button {
   margin: 5px;

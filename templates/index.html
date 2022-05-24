@@ -9,13 +9,20 @@
         <header>
         <div>
             <h1 class="logo">CMPE 285 Project</h1>
-            <h2 class="body" name="portfolio">Your Portfolio: ${{ portfolio }}</h2>
+            <h2 class="body">Your Portfolio Net Value: ${{ portfolio }}</h2>
         </div>
         </header>
         <div>
             <br>
+            <h3 class="stock">
+                {% for stock in stocks%}
+                    {{ stock }}
+                    <br>
+                {% endfor %}
+            </h3>
             <canvas id="myChart" width="400" height="100"></canvas>
-            <script type="text/javascript">let history = {{ data|tojson }}</script>
+            <script type="text/javascript">let historyData = {{ data }}</script>
+            <script type="text/javascript">let time = {{ date }}</script>
             <script src="{{ url_for('static', filename='js/chart.js') }}"></script>
         </div>
         <div>
@@ -52,7 +59,7 @@
                         {% endfor %}
                     {% endif %}
                 {% endwith %}
-            </form>
+                </form>
         </div>
     </body>
 </html>
