@@ -34,18 +34,19 @@ def add():
                     'q': request.form.get('Quality'), 'v': request.form.get('Value')}
 
         strategy = [k for (k, v) in strategy.items() if v == 'on']
+        total = 0
         if amount.isnumeric() and len(strategy) != 0:
             investment = float(amount) / len(strategy)
             for s in strategy:
-                se.addInvestment(s, investment)
-            portfolio = se.netValue
+                total += se.addInvestment(s, investment)
+            portfolio = round(se.netValue, 2)
 
             tmp = []
             for (stock, amt) in se.stocks.items():
                 tmp.append(stock + ': $' + str(amt))
             profile = tmp
 
-            flash('Add $' + amount + ' in total!')
+            flash('Add $' + str(round(total, 2)) + ' to the investment!')
         elif not amount.isnumeric():
             flash('Please enter a number!')
         elif len(strategy) == 0:

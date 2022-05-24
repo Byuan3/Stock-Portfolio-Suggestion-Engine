@@ -117,7 +117,6 @@ class StockEngine:
         return line, round(float(price2), 2)
 
     def addInvestment(self, strategy, amount):
-        self.netValue += amount
         symbols = self.getStock(strategy)
         symbol1 = symbols[0]
         symbol2 = symbols[1]
@@ -151,10 +150,13 @@ class StockEngine:
         self.updateStocks(symbol1, round(a * priceA, 2))
         self.updateStocks(symbol2, round(b * priceB, 2))
         self.updateStocks(symbol3, round(c * priceC, 2))
+        self.netValue += round(a * priceA, 2)
+        self.netValue += round(b * priceB, 2)
+        self.netValue += round(c * priceC, 2)
 
         self.updateTodayData()
 
-        return investment
+        return amount - investment
 
     def getStocks(self):
         return self.stocks
