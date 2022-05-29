@@ -31,9 +31,9 @@ class StockEngine:
 
     def updateData(self):
         self.data.append(self.netValue)
-        self.data = self.data[1:5]
+        self.data = self.data[1:6]
         self.date.append(date.date.today().strftime('%Y-%m-%d'))
-        self.date = self.date[1:5]
+        self.date = self.date[1:6]
 
     def updateTodayData(self):
         self.data[4] = self.netValue
